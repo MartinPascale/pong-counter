@@ -1,0 +1,91 @@
+@import '../config/mixins';
+
+.start-menu {
+  background-color: $backgroundDefault;
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  &__box {
+    @include style-as-box;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 100px 30px 30px;
+    height: 600px;
+    width: 400px;
+    box-sizing: border-box;
+    justify-content: space-between;
+
+    @include mobile {
+      height: 100vh;
+      width: 100vw;
+    }
+
+    img {
+      position: absolute;
+      top: 90px;
+      z-index: 1;
+      width: 250px;
+
+      @include mobile {
+        width: 200px;
+        top: 0;
+      }
+    }
+
+    &__name-input {
+      display: flex;
+      flex-direction: column;
+      font-size: 26px;
+      font-weight: bold;
+      color: $fontColor;
+      width: calc(100% - 60px);
+
+      &:first-of-type {
+        margin-top: 40px;
+
+        @include mobile {
+          margin-top: 90px;
+        }
+      }
+
+      input {
+        @include btn-standard;
+        cursor: text;
+        margin-top: 30px;
+        border-bottom: 2px solid #3b475b7e;
+        font-size: 18px;
+
+        &::placeholder {
+          color: #3b475b7e;
+        }
+
+        &:focus {
+          border-bottom: 2px solid $red;
+        }
+      }
+    }
+
+    &__continue {
+      @include btn-standard;
+      padding: unset;
+      width: calc(100% - 60px);
+      height: 60px;
+      background-color: white;
+      border: 3px solid $red;
+      border-radius: 40px;
+      color: $red;
+      text-transform: uppercase;
+      font-weight: bold;
+
+      &:hover {
+        background-color: $red;
+        color: white;
+        border-color: $red;
+      }
+    }
+  }
+}

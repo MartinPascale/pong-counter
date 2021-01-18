@@ -1,9 +1,19 @@
-import StartMenu from 'container/StartMenu';
+import { useState } from 'react';
+
+import Counter from 'containers/Counter';
+import StartMenu from 'containers/StartMenu';
 
 function App() {
+  const [isCounter, setIsCounter] = useState(false);
+  const [names, setNames] = useState({});
+
   return (
     <div className="App">
-      <StartMenu />
+      {isCounter ? (
+        <Counter names={names} />
+      ) : (
+        <StartMenu setIsCounter={setIsCounter} setNames={setNames} />
+      )}
     </div>
   );
 }
