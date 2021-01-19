@@ -1,4 +1,5 @@
 import { useState } from 'react';
+import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 
 import Counter from 'containers/Counter';
 import StartMenu from 'containers/StartMenu';
@@ -6,17 +7,25 @@ import StartMenu from 'containers/StartMenu';
 import 'styles/index.css';
 
 function App() {
-  const [isCounter, setIsCounter] = useState(false);
   const [names, setNames] = useState({});
 
+  const handleContinue = (nameObj) => {
+    setNames(nameObj);
+  };
+
   return (
-    <div className="App">
-      {isCounter ? (
-        <Counter names={names} />
-      ) : (
-        <StartMenu setIsCounter={setIsCounter} setNames={setNames} />
-      )}
-    </div>
+    <Router>
+      <div className="App">
+        <Switch>
+          <Route path="/counter">
+            <Counter names={names} />
+          </Route>
+          <Route path="/">
+            <StartMenu handleContinue={handleContinue} />
+          </Route>
+        </Switch>
+      </div>
+    </Router>
   );
 }
 

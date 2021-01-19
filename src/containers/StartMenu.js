@@ -1,18 +1,20 @@
 import { useState } from 'react';
+import { useHistory } from 'react-router-dom';
 import PropTypes from 'prop-types';
 
 import pongGif from 'assets/empty.gif';
 
 import 'styles/containers/StartMenu.scss';
 
-const StartMenu = ({ setIsCounter, setNames }) => {
+const StartMenu = ({ handleContinue }) => {
+  const history = useHistory();
   const [player1, setPlayer1] = useState('');
   const [player2, setPlayer2] = useState('');
 
-  const handleContinue = () => {
-    if (player1 && player2) {
-      setNames({ player1, player2 });
-      setIsCounter(true);
+  const handleContinueClick = () => {
+    if (player1 && player1.trim() && player2 && player2.trim()) {
+      handleContinue({ player1, player2 });
+      history.push('/counter');
     }
   };
 
@@ -41,7 +43,7 @@ const StartMenu = ({ setIsCounter, setNames }) => {
         <button
           type="button"
           className="start-menu__box__continue"
-          onClick={handleContinue}
+          onClick={handleContinueClick}
         >
           Continue
         </button>
@@ -51,8 +53,7 @@ const StartMenu = ({ setIsCounter, setNames }) => {
 };
 
 StartMenu.propTypes = {
-  setIsCounter: PropTypes.func.isRequired,
-  setNames: PropTypes.func.isRequired,
+  handleContinue: PropTypes.func.isRequired,
 };
 
 export default StartMenu;

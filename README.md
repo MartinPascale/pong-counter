@@ -1,9 +1,15 @@
 ## Installation
+
 Install all project dependencies by running:
-### `yarn intall`
+
+### `yarn install`
+
 It will create the node_modules folder, then you can run:
+
 ### `yarn start`
+
 To start the development server on localhost:3000
+
 ## Available Scripts
 
 In the project directory, you can run:
