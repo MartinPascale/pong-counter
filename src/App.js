@@ -3,6 +3,8 @@ import { useState } from 'react';
 import Counter from 'containers/Counter';
 import StartMenu from 'containers/StartMenu';
 
+import 'styles/index.css';
+
 function App() {
   const [isCounter, setIsCounter] = useState(false);
   const [names, setNames] = useState({});

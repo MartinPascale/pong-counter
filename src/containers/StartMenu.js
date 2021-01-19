@@ -10,7 +10,6 @@ const StartMenu = ({ setIsCounter, setNames }) => {
 
   const handleContinue = () => {
     if (player1 && player2) {
-      console.log(player1, player2);
       setNames({ player1, player2 });
       setIsCounter(true);
     }
