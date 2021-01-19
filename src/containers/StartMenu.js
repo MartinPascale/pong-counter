@@ -1,9 +1,10 @@
-import pongGif from 'assets/empty.gif';
 import { useState } from 'react';
+import PropTypes from 'prop-types';
+
+import pongGif from 'assets/empty.gif';
 
 import 'styles/containers/StartMenu.scss';
 
-// eslint-disable-next-line react/prop-types
 const StartMenu = ({ setIsCounter, setNames }) => {
   const [player1, setPlayer1] = useState('');
   const [player2, setPlayer2] = useState('');
@@ -47,6 +48,11 @@ const StartMenu = ({ setIsCounter, setNames }) => {
       </div>
     </div>
   );
+};
+
+StartMenu.propTypes = {
+  setIsCounter: PropTypes.func.isRequired,
+  setNames: PropTypes.func.isRequired,
 };
 
 export default StartMenu;
